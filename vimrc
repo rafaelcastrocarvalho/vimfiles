@@ -23,8 +23,8 @@ set guioptions-=T
 
 
 "indent settings
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 
@@ -50,13 +50,15 @@ filetype off
 "load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
  
- "turn on syntax highlighting
+"turn on syntax highlighting
 syntax on
+
+"allow unsaved buffers to become hiden
+set hidden
 
 "Command-T configuration
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
-
 
 if has("gui_running")
     "tell the term has 256 colors
@@ -64,7 +66,9 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme desert
+        colorscheme railscasts
+        set lines=62
+        set columns=229
     else
         colorscheme railscasts
         set guitablabel=%M%t
