@@ -56,6 +56,9 @@ syntax on
 "allow unsaved buffers to become hiden
 set hidden
 
+"jump to the window if a buffer is already opened in one
+set switchbuf=useopen
+
 "Command-T configuration
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
