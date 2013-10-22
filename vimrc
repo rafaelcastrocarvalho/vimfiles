@@ -67,11 +67,11 @@ if has("gui")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme railscasts
+        colorscheme jellybeans
     else
         set term=xterm-256color
         set guitablabel=%M%t
-        colorscheme railscasts
+        colorscheme jellybeans
     endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h14
