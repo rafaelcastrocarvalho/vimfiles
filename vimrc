@@ -43,7 +43,6 @@ set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
-
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype off
 
@@ -59,31 +58,23 @@ set hidden
 "jump to the window if a buffer is already opened in one
 set switchbuf=useopen
 
-"Command-T configuration
-let g:CommandTMaxHeight=10
-let g:CommandTMatchWindowAtTop=1
+"Toggles NERDTree
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
-if has("gui_running")
+if has("gui")
     "tell the term has 256 colors
     set t_Co=256
 
     if has("gui_gnome")
         set term=gnome-256color
         colorscheme railscasts
-        set lines=62
-        set columns=229
     else
-        colorscheme railscasts
+        set term=xterm-256color
         set guitablabel=%M%t
-        set lines=40
-        set columns=115
+        colorscheme railscasts
     endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h14
-        " key binding for Command-T to behave properly
-        " uncomment to replace the Mac Command-T key to Command-T plugin
-        macmenu &File.New\ Tab key=<nop>
-        map <D-t> :CommandT<CR>
         " make Mac's Option key behave as the Meta key
         set invmmta
     endif
@@ -95,7 +86,3 @@ else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
 endif
-
-
-"Toggles NERDTree
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
