@@ -35,7 +35,7 @@ set nofoldenable        "dont fold by default
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*~,*.class,*/target/* "stuff to ignore when tab completing
 
 
 "vertical/horizontal scroll off settings
@@ -48,7 +48,7 @@ filetype off
 
 "load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
- 
+
 "turn on syntax highlighting
 syntax on
 
@@ -60,6 +60,20 @@ set switchbuf=useopen
 
 "Toggles NERDTree
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
+
+" List chars
+set list
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the left of the screen
+
+"remove trailing spaces when saving
+autocmd BufWritePre * :%s/\s\+$//e
+
 
 if has("gui")
     "tell the term has 256 colors
